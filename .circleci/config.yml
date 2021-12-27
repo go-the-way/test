@@ -11,8 +11,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
       - image: circleci/golang:1.16
-      - image: circleci/golang:1.17
-      - image: circleci/golang
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -30,8 +28,16 @@ jobs:
             bash <(curl -s https://codecov.io/bash)
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+  helloworld:
+    steps:
+      - run:
+          name: echo
+          command: |
+            echo "hello world"
+            echo "hello earth"
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
+      - helloworld
