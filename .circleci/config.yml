@@ -21,11 +21,11 @@ jobs:
       - run:
           name: Run tests
           command:
-          - go test -coverprofile=coverage.txt -covermode=atomic -v ./...
+            - go test -coverprofile=coverage.txt -covermode=atomic -v ./...
       - run:
-        name: upload_codecov
-        command: 
-        - bash <(curl -s https://codecov.io/bash)
+          name: upload_codecov
+          command: 
+            - bash <(curl -s https://codecov.io/bash)
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
