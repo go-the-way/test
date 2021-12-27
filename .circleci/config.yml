@@ -34,10 +34,6 @@ jobs:
             bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: /tmp/test-reports
-  codecov:
-    working_directory: ~/repo
-    steps:
-      - bash <(curl -s https://codecov.io/bash)
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -45,4 +41,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - codecov
